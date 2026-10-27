@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        color: white;
+        background-color: black;
+    }
+    .container{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+    }
+    .left{
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        gap: 10px;
+    }
+    .image1{
+        width: 65%;
+        height: 350px;
+    }
+    .image1,
+    .image2,
+    .image3,
+    .image4,
+    .image5,
+    .image6,
+    .image7,
+    .image8,
+    .image9,
+    .image10,
+    .image11,
+    .image12{
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .image1 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image2{
+        width: 33%;
+        height: 350px;
+    }
+    .image2 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image3{
+        width: 23%;
+        height: 350px;
+
+    }
+    .image3 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image4{
+        width: 50%;
+        height: 350px;
+    }
+    .image4 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image5{
+        width: 23%;
+        height: 350px;
+    }
+    .image5 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image6{
+        width: 49%;
+        height: 350px;
+    }
+    .image6 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image7{
+        width: 49%;
+        height: 350px;
+    }
+    .image7 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image8{
+        width: 32%;
+        height: 350px;
+    }
+    .image8 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image9{
+        width: 32%;
+        height: 350px;
+    }
+    .image9 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image10{
+        width: 32%;
+        height: 350px;
+    }
+    .image10 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image11{
+        width: 33%;
+        height: 350px;
+    }
+    .image11 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image12{
+        width: 65%;
+        height: 350px;
+    }
+    .image12 img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .image1::before,
+    .image2::before,
+    .image3::before,
+    .image4::before,
+    .image5::before,
+    .image6::before,
+    .image7::before,
+    .image8::before,
+    .image9::before,
+    .image10::before,
+    .image11::before,
+    .image12::before{
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 1;
+    }
+    .image1 h3,
+    .image2 h3,
+    .image3 h3,
+    .image4 h3,
+    .image5 h3,
+    .image6 h3,
+    .image7 h3,
+    .image8 h3,
+    .image9 h3,
+    .image10 h3,
+    .image11 h3,
+    .image12 h3{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: sans-serif;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 2;
+        }
+        .image1 p,
+        .image2 p,
+        .image3 p,
+        .image4 p,
+        .image5 p,
+        .image6 p,
+        .image7 p,
+        .image8 p,
+        .image9 p,
+        .image10 p,
+        .image11 p,
+        .image12 p {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            text-align: center;
+            color: #777;
+            font-size: 12px;
+            font-weight: 700;
+            font-family: sans-serif;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 2;
+        }
+        .image1:hover::before,
+        .image2:hover::before,
+        .image3:hover::before,
+        .image4:hover::before,
+        .image5:hover::before,
+        .image6:hover::before,
+        .image7:hover::before,
+        .image8:hover::before,
+        .image9:hover::before,
+        .image10:hover::before,
+        .image11:hover::before,
+        .image12:hover::before {
+            opacity: 1;
+        }
+        
+        /* Hover par text show hoga */
+        
+        .image1:hover h3,
+        .image2:hover h3,
+        .image3:hover h3,
+        .image4:hover h3,
+        .image5:hover h3,
+        .image6:hover h3,
+        .image7:hover h3,
+        .image8:hover h3,
+        .image9:hover h3,
+        .image10:hover h3,
+        .image11:hover h3,
+        .image12:hover h3,
+        .image1:hover p,
+        .image2:hover p,
+        .image3:hover p,
+        .image4:hover p,
+        .image5:hover p,
+        .image6:hover p,
+        .image7:hover p,
+        .image8:hover p,
+        .image9:hover p,
+        .image10:hover p,
+        .image11:hover p,
+        .image12:hover p {
+            opacity: 1;  
+        } 
+    .right{
+        width: 20%;
+        text-align: right;
+        position: fixed;
+        top: 0;
+        margin: 0;
+        right: 0;
+        padding: 40px 25px;
+        min-height: 100vh;
+        background-color: black;
+    }
+    .right h1{
+        font-size: 18px;
+        font-weight: 700;
+        font-family: sans-serif;
+        margin: 0px 0px 40px 0px;
+    }
+    .right ul{
+        margin-bottom: 50px;
+    }
+    .right ul li{
+        margin-bottom: 15px;
+        list-style: none;
+    }
+    .right ul li a{
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        font-family: sans-serif;
+    }
+    .right ul li:nth-child(1) a{
+        color: #ff6347;
+    }
+    .icon a{
+        text-decoration: none;
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 5px;
+        transition: color 0.5s ease;
+
+    }
+    a:hover{
+        color: rgb(247, 190, 84);
+    }
+
+@media screen and (max-width: 992px) {
+
+    .left {
+        width: 75%;
+        gap: 8px;
+    }
+
+    .right {
+        width: 25%;
+        padding: 30px 15px;
+    }
+
+    .image1,
+    .image2,
+    .image3,
+    .image4,
+    .image5,
+    .image6,
+    .image7,
+    .image8,
+    .image9,
+    .image10,
+    .image11,
+    .image12 {
+        height: 250px;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .container {
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-top: 145px;
+    }
+
+    .right {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 15px;
+        text-align: center;
+        background-color: black;
+    }
+
+    .right h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    /* Navigation links */
+
+    .right ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 18px;
+        margin-bottom: 20px;
+    }
+
+    .right ul li {
+        margin-bottom: 0;
+    }
+
+    .right ul li a {
+        font-size: 11px;
+    }
+
+    .icon {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .icon a {
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    .left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 10px;
+    }
+
+    .image1,
+    .image2,
+    .image3,
+    .image4,
+    .image5,
+    .image6,
+    .image7,
+    .image8,
+    .image9,
+    .image10,
+    .image11,
+    .image12 {
+        width: 100%;
+        height: 260px;
+        flex-shrink: 0;
+    }
+
+    .image1 img,
+    .image2 img,
+    .image3 img,
+    .image4 img,
+    .image5 img,
+    .image6 img,
+    .image7 img,
+    .image8 img,
+    .image9 img,
+    .image10 img,
+    .image11 img,
+    .image12 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+}
+</style>
+
+</head>
+<body>
+    
+<div class="container">
+
+    <div class="left">
+
+        <div class="image1">
+
+            <img src="img1.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+            
+        </div>   
+
+        <div class="image2">
+
+            <img src="img2.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+        <div class="image3">
+
+            <img src="img_3.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+        </div>
+
+        <div class="image4">
+
+            <img src="img4.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+        <div class="image5">
+
+            <img src="img_5.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+        
+        <div class="image6">
+
+            <img src="img6.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+    
+        <div class="image7">
+
+            <img src="img_7.avif" alt="">
+        
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+    
+        <div class="image8">
+
+            <img src="img_8.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+        <div class="image9">
+
+            <img src="img_9.avif" alt="">
+        
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+    
+        <div class="image10">
+
+            <img src="img_10.avif" alt="">
+        
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+    
+        <div class="image3">
+
+            <img src="img_3.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+        <div class="image4">
+
+            <img src="img4.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+        <div class="image5">
+
+            <img src="img_5.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+         <div class="image1">
+
+            <img src="img1.avif" alt="">
+            
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>   
+
+        <div class="image2">
+
+            <img src="img2.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+        
+         <div class="image6">
+
+            <img src="img6.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+    
+        <div class="image7">
+
+            <img src="img_7.avif" alt="">
+        
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+         <div class="image11">
+
+            <img src="img_8.avif" alt="">
+
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+            
+        </div>
+
+        <div class="image12">
+
+            <img src="img_9.avif" alt="">
+        
+            <a href="https://preview.colorlib.com/theme/shutter/single.html"><h3>Photos Title Here</h3></a>
+
+            <p>42 PHOTOS</p>
+
+        </div>
+
+    </div>
+
+       <!-- RIGHTSIDE -->
+    <div class="right">
+
+        <h1>SHUTTER</h1>
+      
+        <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">PHOTOS</a></li>
+            <li><a href="">BIO</a></li>
+            <li><a href="">BLOG</a></li>
+            <li><a href="">CONTACT</a></li>
+        </ul>
+
+        <div class="icon">
+
+            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+
+            <a href=""><i class="fa-brands fa-500px"></i></a>
+
+            <a href="">    <i class="fa-brands fa-flickr"></i></a>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>
